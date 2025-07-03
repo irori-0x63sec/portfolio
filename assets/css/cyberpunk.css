@@ -1,35 +1,49 @@
-
 :root {
-  --bg: #0d0d0d;
-  --text: #e5e5e5;
-  --dir: #00ffff;
-  --cmd: #ccff00;
-  --highlight: #00ffe1;
-  --status-blue: #00cfff;
-  --status-green: #ccff00;
+  --bg: #141416;
+  --fg: #cfeb57;
+  --cursor: #63c0c8;
+
+  --ansi-black:   #141416;
+  --ansi-red:     #ff2052;
+  --ansi-green:   #b4ff00;
+  --ansi-yellow:  #ffe600;
+  --ansi-blue:    #00fff7;
+  --ansi-magenta: #ff2ef6;
+  --ansi-cyan:    #00ff9f;
+  --ansi-white:   #f0f0f0;
+
+  --bright-black:   #3a3a3a;
+  --bright-red:     #ff6a85;
+  --bright-green:   #d3ff66;
+  --bright-yellow:  #fff700;
+  --bright-blue:    #66ffff;
+  --bright-magenta: #ff99ff;
+  --bright-cyan:    #66ffcc;
+  --bright-white:   #ffffff;
+
   --font: 'Fira Code', 'JetBrains Mono', monospace;
 }
 
 body {
   background-color: var(--bg);
-  color: var(--text);
+  color: var(--fg);
   font-family: var(--font);
-  line-height: 1.7;
   padding: 2rem;
 }
 
 a {
-  color: var(--dir);
+  color: var(--ansi-blue);
   text-decoration: none;
 }
 
 a:hover {
-  color: var(--highlight);
+  color: var(--ansi-cyan);
 }
 
 pre, code {
-  background-color: #111;
-  color: var(--cmd);
-  padding: 0.3rem 0.5rem;
-  border-radius: 5px;
+  background-color: var(--bright-black);
+  color: var(--ansi-green);
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
+  font-family: var(--font);
 }
