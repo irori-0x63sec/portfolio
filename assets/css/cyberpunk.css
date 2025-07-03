@@ -1,0 +1,35 @@
+
+:root {
+  --bg: #0d0d0d;
+  --text: #e5e5e5;
+  --dir: #00ffff;
+  --cmd: #ccff00;
+  --highlight: #00ffe1;
+  --status-blue: #00cfff;
+  --status-green: #ccff00;
+  --font: 'Fira Code', 'JetBrains Mono', monospace;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  line-height: 1.7;
+  padding: 2rem;
+}
+
+a {
+  color: var(--dir);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--highlight);
+}
+
+pre, code {
+  background-color: #111;
+  color: var(--cmd);
+  padding: 0.3rem 0.5rem;
+  border-radius: 5px;
+}
