@@ -6,17 +6,24 @@
   <link rel="stylesheet" href="{{ '/assets/css/cyberpunk.css' | relative_url }}">
 </head>
 <body>
-  {% unless page.url == "https://irori-0x63sec.github.io/portfolio/" %}
-    <header style="background-color: #111; padding: 10px; border-bottom: 1px solid #444;">
-      <nav style="max-width: 960px; margin: 0 auto; display: flex; align-items: center;">
-        <a href="{{ '/' | relative_url }}" style="color: #b4ff00; text-decoration: none; font-weight: bold; font-size: 1.2em;">
-          ⬅ Back to Home
-        </a>
-      </nav>
-    </header>
-  {% endunless %}
-  <p style="color:red">page.url = {{ page.url }}</p>
+  <!-- Back to Home ヘッダー -->
+  <header id="back-to-home" style="display: none; background-color: #111; padding: 10px; border-bottom: 1px solid #444;">
+    <nav style="max-width: 960px; margin: 0 auto; display: flex; align-items: center;">
+      <a href="{{ '/' | relative_url }}" style="color: #b4ff00; text-decoration: none; font-weight: bold; font-size: 1.2em;">
+        ⬅ Back to Home
+      </a>
+    </nav>
+  </header>
 
+  <!-- メインコンテンツ -->
   {{ content }}
+
+  <!-- 表示制御用スクリプト -->
+  <script>
+    const isHome = location.pathname === "/portfolio/" || location.pathname === "/portfolio/index.html";
+    if (!isHome) {
+      document.getElementById("back-to-home").style.display = "block";
+    }
+  </script>
 </body>
 </html>
