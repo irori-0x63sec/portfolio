@@ -51,56 +51,48 @@ pre, code {
 /* === ★ Glitch Effect === */
 .glitch {
   position: relative;
-  color: white;
-  font-family: var(--font);
-  font-size: 1.1em;
-  font-weight: bold;
-  display: inline-block;
-  animation: flicker 2.5s ease-in-out 1;
+  color: #66ff66;
+  font-family: monospace;
 }
 
 .glitch::before,
 .glitch::after {
   content: attr(data-text);
   position: absolute;
-  top: 0;
   left: 0;
+  top: 0;
   width: 100%;
   overflow: hidden;
-  color: white;
+  color: #66ff66;
+  clip: rect(0, 0, 0, 0);
+  opacity: 0.8;
 }
 
-.glitch::before {
+.glitch.glitch-active::before {
   text-shadow: -2px 0 red;
-  animation: glitchTop 1s infinite linear alternate-reverse;
+  animation: glitch-top 0.8s linear;
 }
 
-.glitch::after {
+.glitch.glitch-active::after {
   text-shadow: 2px 0 blue;
-  animation: glitchBottom 1s infinite linear alternate-reverse;
+  animation: glitch-bottom 0.8s linear;
 }
 
-/* === Flicker-in-once effect */
-@keyframes flicker {
-  0% { opacity: 0; transform: scale(0.95); }
-  50% { opacity: 0.3; }
-  70% { opacity: 0.7; transform: scale(1.02); }
-  100% { opacity: 1; transform: none; }
+@keyframes glitch-top {
+  0% { clip: rect(0, 900px, 0, 0); }
+  20% { clip: rect(0, 9999px, 20px, 0); }
+  40% { clip: rect(10px, 9999px, 50px, 0); }
+  60% { clip: rect(20px, 9999px, 70px, 0); }
+  80% { clip: rect(5px, 9999px, 30px, 0); }
+  100% { clip: rect(0, 900px, 0, 0); }
 }
 
-/* === Glitch scan lines */
-@keyframes glitchTop {
-  0%   { clip: rect(0, 9999px, 0, 0); }
-  10%  { clip: rect(0, 9999px, 10px, 0); }
-  20%  { clip: rect(0, 9999px, 5px, 0); }
-  30%  { clip: rect(0, 9999px, 20px, 0); }
-  100% { clip: rect(0, 9999px, 0, 0); }
+@keyframes glitch-bottom {
+  0% { clip: rect(0, 900px, 0, 0); }
+  20% { clip: rect(20px, 9999px, 60px, 0); }
+  40% { clip: rect(5px, 9999px, 25px, 0); }
+  60% { clip: rect(30px, 9999px, 70px, 0); }
+  80% { clip: rect(10px, 9999px, 40px, 0); }
+  100% { clip: rect(0, 900px, 0, 0); }
 }
 
-@keyframes glitchBottom {
-  0%   { clip: rect(0, 9999px, 0, 0); }
-  10%  { clip: rect(10px, 9999px, 100px, 0); }
-  20%  { clip: rect(5px, 9999px, 90px, 0); }
-  30%  { clip: rect(20px, 9999px, 80px, 0); }
-  100% { clip: rect(0, 9999px, 0, 0); }
-}
