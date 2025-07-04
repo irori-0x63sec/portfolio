@@ -48,23 +48,59 @@ pre, code {
   font-family: var(--font);
 }
 
+/* === ★ Glitch Effect === */
 .glitch {
   position: relative;
-  color: #66ff66;
-  font-family: monospace;
-  animation: glitch 1s steps(2, jump-none) 1;
+  color: white;
+  font-family: var(--font);
+  font-size: 1.1em;
+  font-weight: bold;
+  display: inline-block;
+  animation: flicker 2.5s ease-in-out 1;
 }
 
-@keyframes glitch {
-  0%   { transform: translate(0); opacity: 1; }
-  10%  { transform: translate(-2px, 2px); opacity: 0.8; }
-  20%  { transform: translate(2px, -2px); opacity: 0.9; }
-  30%  { transform: translate(-2px, 2px); opacity: 0.7; }
-  40%  { transform: translate(2px, -1px); opacity: 0.9; }
-  50%  { transform: translate(-1px, 1px); opacity: 0.8; }
-  60%  { transform: translate(1px, -1px); opacity: 0.95; }
-  70%  { transform: translate(-1px, 1px); opacity: 0.7; }
-  80%  { transform: translate(1px, -2px); opacity: 0.9; }
-  90%  { transform: translate(0px, 0px); opacity: 1; }
-  100% { transform: none; opacity: 1; }
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  color: white;
+}
+
+.glitch::before {
+  text-shadow: -2px 0 red;
+  animation: glitchTop 1s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  text-shadow: 2px 0 blue;
+  animation: glitchBottom 1s infinite linear alternate-reverse;
+}
+
+/* === Flicker-in-once effect */
+@keyframes flicker {
+  0% { opacity: 0; transform: scale(0.95); }
+  50% { opacity: 0.3; }
+  70% { opacity: 0.7; transform: scale(1.02); }
+  100% { opacity: 1; transform: none; }
+}
+
+/* === Glitch scan lines */
+@keyframes glitchTop {
+  0%   { clip: rect(0, 9999px, 0, 0); }
+  10%  { clip: rect(0, 9999px, 10px, 0); }
+  20%  { clip: rect(0, 9999px, 5px, 0); }
+  30%  { clip: rect(0, 9999px, 20px, 0); }
+  100% { clip: rect(0, 9999px, 0, 0); }
+}
+
+@keyframes glitchBottom {
+  0%   { clip: rect(0, 9999px, 0, 0); }
+  10%  { clip: rect(10px, 9999px, 100px, 0); }
+  20%  { clip: rect(5px, 9999px, 90px, 0); }
+  30%  { clip: rect(20px, 9999px, 80px, 0); }
+  100% { clip: rect(0, 9999px, 0, 0); }
 }
