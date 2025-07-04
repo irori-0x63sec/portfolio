@@ -3,6 +3,24 @@ layout: default
 title: Linux Attack Lab Summary
 ---
 
+<style>
+  .highlight {
+    background-color: #333;
+    color: #b4ff00;
+    font-weight: bold;
+    padding: 0 0.2em;
+    border-radius: 2px;
+    font-size: 1em;
+  }
+
+  .pdf-frame {
+    width: 100%;
+    height: 600px;
+    border: 1px solid #666;
+    margin-top: 1em;
+  }
+</style>
+
 <section class="intro">
   <h1>🧠 Linux Attack Lab (Based on Udemy Course)</h1>
   <p>This slide was created by reorganizing and summarizing content from the Udemy course <strong>“Linux攻撃実践演習”</strong> as a learning output.</p>
@@ -16,8 +34,8 @@ title: Linux Attack Lab Summary
   <ul>
     <li>Target: Stapler (Beginner to Intermediate)</li>
     <li>Tools Used: Netdiscover, nmap, Searchsploit, Metasploit</li>
-    <li>Attack Vector: Samba 4.3 - <code>is_known_pipename</code> vulnerability</li>
-    <li>Goal: Retrieve <code>flag.txt</code></li>
+    <li>Attack Vector: Samba 4.3 - <span class="highlight">is_known_pipename</span> vulnerability</li>
+    <li>Goal: Retrieve <span class="highlight">flag.txt</span></li>
   </ul>
 </section>
 
@@ -25,10 +43,13 @@ title: Linux Attack Lab Summary
 
 <section class="slides">
   <h2>🗂️ Slide Material</h2>
-  <p><a href="slides1.pdf">👉 View Linux Attack Lab Slides (PDF)</a></p>
-  <blockquote>
-    PDF includes Speaker Notes and provides a reproducible step-by-step walkthrough.
-  </blockquote>
+  <p><a href="slides1.pdf">👉 View as PDF (click here)</a></p>
+  <iframe
+    src="slides1.pdf"
+    class="pdf-frame"
+    title="Linux Attack Slides PDF"
+    sandbox
+  ></iframe>
 </section>
 
 <hr>
@@ -36,7 +57,7 @@ title: Linux Attack Lab Summary
 <section class="thoughts">
   <h2>🗨️ Reflections</h2>
   <blockquote>
-    Even familiar tools don't guarantee success.  
+    Even familiar tools don’t guarantee success.  
     Integration and inference are key.<br>
     I plan to challenge more CTFs to improve reconstruction skills and methodology.
   </blockquote>
