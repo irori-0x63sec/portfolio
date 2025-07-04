@@ -31,10 +31,10 @@
         lines.forEach((line, i) => {
           setTimeout(() => {
             line.classList.add('glitch-active');
-            setTimeout(() => line.classList.remove('glitch-active'), 600);
-          }, i * 200); // 1行ずつ順に
+            setTimeout(() => line.classList.remove('glitch-active'), 700);
+          }, i * 150);
         });
-      }, 3000); // ページ読み込みから3秒後に実行
+      }, 3000);
     });
   </script>
 

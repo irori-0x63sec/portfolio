@@ -54,59 +54,47 @@ pre, code {
   color: var(--fg);
   font-family: var(--font);
   font-size: 1.1rem;
+  line-height: 1.4;
   margin: 0.6em 0;
+  display: inline-block;
 }
 
 .glitch-line::before,
 .glitch-line::after {
   content: attr(data-text);
   position: absolute;
+  top: 0;
   left: 0;
   width: 100%;
-  overflow: hidden;
   pointer-events: none;
   opacity: 0;
+  color: var(--fg);
 }
 
 .glitch-line.glitch-active::before {
   text-shadow: -2px 0 var(--ansi-magenta);
-  animation: glitchTop 0.5s ease, flicker 0.5s ease;
-  color: var(--fg);
+  animation: glitchTop 0.5s ease-out;
   opacity: 0.8;
 }
 
 .glitch-line.glitch-active::after {
   text-shadow: 2px 0 var(--ansi-cyan);
-  animation: glitchBottom 0.5s ease, flicker 0.5s ease;
-  color: var(--fg);
+  animation: glitchBottom 0.5s ease-out;
   opacity: 0.8;
 }
 
 @keyframes glitchTop {
   0%   { clip: rect(0, 9999px, 0, 0); }
-  10%  { clip: rect(4px, 9999px, 10px, 0); }
-  20%  { clip: rect(2px, 9999px, 6px, 0); }
-  30%  { clip: rect(5px, 9999px, 14px, 0); }
-  40%  { clip: rect(0, 9999px, 4px, 0); }
-  50%  { clip: rect(6px, 9999px, 16px, 0); }
+  20%  { clip: rect(2px, 9999px, 8px, 0); }
+  40%  { clip: rect(0px, 9999px, 12px, 0); }
+  60%  { clip: rect(4px, 9999px, 14px, 0); }
   100% { clip: rect(0, 9999px, 0, 0); }
 }
 
 @keyframes glitchBottom {
   0%   { clip: rect(0, 9999px, 0, 0); }
-  10%  { clip: rect(5px, 9999px, 12px, 0); }
-  20%  { clip: rect(3px, 9999px, 9px, 0); }
-  30%  { clip: rect(6px, 9999px, 15px, 0); }
-  40%  { clip: rect(1px, 9999px, 6px, 0); }
-  50%  { clip: rect(8px, 9999px, 18px, 0); }
+  20%  { clip: rect(6px, 9999px, 16px, 0); }
+  40%  { clip: rect(2px, 9999px, 10px, 0); }
+  60%  { clip: rect(1px, 9999px, 8px, 0); }
   100% { clip: rect(0, 9999px, 0, 0); }
-}
-
-@keyframes flicker {
-  0%   { opacity: 1; }
-  20%  { opacity: 0.4; }
-  40%  { opacity: 0.9; }
-  60%  { opacity: 0.2; }
-  80%  { opacity: 0.7; }
-  100% { opacity: 1; }
 }
